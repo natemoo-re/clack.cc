@@ -22,9 +22,7 @@ const ensureTrailingSlash = (url: string) => url.replace(/\/$/, "") + "/";
 <meta charset="utf-8" />
 <meta name="generator" content={Astro.generator} />
 <meta name="viewport" content="width=device-width" />
-<meta name="theme-color" content="#8D46E7" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
 
 <title>{title}</title>
 
@@ -32,7 +30,7 @@ const ensureTrailingSlash = (url: string) => url.replace(/\/$/, "") + "/";
   siteName="Clack"
   title={title}
   description={description}
-  image={new URL("/social.png", Astro.url).toString() + "?v=1"}
+  image={new URL("/social.png", Astro.url).toString()}
   twitterHandle="@n_moore"
   pageType={pageType}
   url={canonicalURL && ensureTrailingSlash(canonicalURL.toString())}
