@@ -32,7 +32,7 @@ const ensureTrailingSlash = (url: string) => url.replace(/\/$/, "") + "/";
   siteName="Clack"
   title={title}
   description={description}
-  image={new URL("/social.png", Astro.url).toString()}
+  image={new URL("/social.png", Astro.url).toString() + "?v=1"}
   twitterHandle="@n_moore"
   pageType={pageType}
   url={canonicalURL && ensureTrailingSlash(canonicalURL.toString())}
