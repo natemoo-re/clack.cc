@@ -14,26 +14,43 @@ window.addEventListener('load', async () => {
   await webcontainer;
 });
 
-async function bootWebContainer(terminal: import('xterm').Terminal) {
-  // if (!isWebContainerSupported()) {
-  //   terminal.reset();
-  //   terminal.write(
-  //     wordWrap(
-  //       [
-  //         red('Incompatible Web Browser'),
-  //         '',
-  //         `WebContainers currently work in Chromium-based browsers and Firefox. We're hoping to add support for more browsers as they implement the necessary Web Platform features.`,
-  //         '',
-  //         'Read more about browser support:',
-  //         'https://webcontainers.io/guides/browser-support',
-  //         ''
-  //       ].join('\n'),
-  //       terminal.cols
-  //     )
-  //   );
+/**
+ * Checks if WebContainer is supported on the current browser.
+ */
+function isWebContainerSupported() {
+  const hasSharedArrayBuffer = 'SharedArrayBuffer' in window;
+  const looksLikeChrome = navigator.userAgent.toLowerCase().includes('chrome');
+  const looksLikeFirefox = navigator.userAgent.includes('Firefox');
 
-  //   return;
-  // }
+  if (hasSharedArrayBuffer && (looksLikeChrome || looksLikeFirefox)) {
+    return true;
+  }
+
+  // Allow overriding the support check with localStorage.webcontainer_any_ua = 1
+  try {
+    return Boolean(localStorage.getItem('webcontainer_any_ua'));
+  } catch {
+    return false;
+  }
+}
+
+async function bootWebContainer(terminal: import('xterm').Terminal) {
+  if (!isWebContainerSupported()) {
+    terminal.reset();
+    terminal.write(
+        [
+          'Incompatible Web Browser',
+          '',
+          `WebContainers currently work in Chromium-based browsers and Firefox. We're hoping to add support for more browsers as they implement the necessary Web Platform features.`,
+          '',
+          'Read more about browser support:',
+          'https://webcontainers.io/guides/browser-support',
+          ''
+        ].join('\n'),
+      );
+
+    return;
+  }
 
   if (webcontainer) {
     return webcontainer;
