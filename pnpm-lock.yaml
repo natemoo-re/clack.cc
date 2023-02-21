@@ -6,6 +6,7 @@ specifiers:
   astro: ^2.0.11
   fast-glob: ^3.2.12
   p-defer: ^4.0.0
+  simple-astro-seo: ^0.1.3
   xterm: ^5.1.0
   xterm-addon-fit: ^0.7.0
   xterm-addon-web-links: ^0.8.0
@@ -16,6 +17,7 @@ dependencies:
   astro: 2.0.11
   fast-glob: 3.2.12
   p-defer: 4.0.0
+  simple-astro-seo: 0.1.3
   xterm: 5.1.0
   xterm-addon-fit: 0.7.0_xterm@5.1.0
   xterm-addon-web-links: 0.8.0_xterm@5.1.0
@@ -2487,6 +2489,10 @@ packages:
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
+    dev: false
+
+  /simple-astro-seo/0.1.3:
+    resolution: {integrity: sha512-yZcacNqhuvNlgkGr5xqiYPb8jM6HJmk8EEQSq6RtgT8Mi8qi8LRIBJDJqU49+c+jGd6+DBN0fpyBPs7V7c7AYA==}
     dev: false
 
   /sisteransi/1.0.5:
