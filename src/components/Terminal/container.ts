@@ -56,7 +56,9 @@ async function bootWebContainer(terminal: import('xterm').Terminal) {
     return webcontainer;
   }
 
-  terminal.write('Booting...');
+  const ESC = '\x1B';
+  const CSI = `${ESC}[`;
+  terminal.write(`${CSI}?25l`);
 
   webcontainer = WebContainer.boot();
 
@@ -100,7 +102,7 @@ async function bootWebContainer(terminal: import('xterm').Terminal) {
 
         await jshReady.promise;
 
-        shellWriter.write('pnpm install --prod && pnpm start\n');
+        shellWriter.write('clear && node index.js\n');
 
         // write the terminal input to the process
         const terminalWriter = terminal.onData((data) => {

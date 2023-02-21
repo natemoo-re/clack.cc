@@ -8,7 +8,7 @@
     "build": "pnpm run build:demo && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "build:demo": "cd demo && pnpm install"
+    "build:demo": "cd demo && npm install"
   },
   "dependencies": {
     "@webcontainer/api": "^1.0.0",
