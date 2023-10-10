@@ -4,6 +4,10 @@
     {
       "source": "/issues",
       "destination": "https://github.com/natemoo-re/clack/issues/new/choose"
+    },
+    {
+      "source": "/discord",
+      "destination": "https://discord.gg/KSbmXugQga"
     }
   ],
   "headers": [
